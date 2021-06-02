@@ -5,6 +5,7 @@ import com.example.webshopback.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
-
+    //PreAuthorize("hasAuthority('USER')")
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
         List<Product> products = productService.getAll();
@@ -29,27 +30,27 @@ public class ProductController {
         }
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
-
-    @PostMapping("/products")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/api/products")
     public ResponseEntity<Product> createNewProduct(@Valid @RequestBody Product product) throws IOException {
 
         Product persistedProduct = productService.createNew(product);
         return new ResponseEntity<>(persistedProduct, HttpStatus.CREATED);
     }
-
+   //@PreAuthorize("hasAuthority('USER')")
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable long id) {
         Product product = productService.getOne(id);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
-
-    @DeleteMapping("/products/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/api/products/{id}")
     public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
         productService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    @PutMapping("/products/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PutMapping("/api/products/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable long id, @Valid @RequestBody Product product) {
         Product newProduct = productService.getOne(id);
         newProduct.setName(product.getName());

@@ -5,6 +5,7 @@ import com.example.webshopback.service.ShopOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,8 +41,8 @@ public class ShopOrderController {
         ShopOrder shopOrder = shopOrderService.getOne(id);
         return new ResponseEntity<>(shopOrder, HttpStatus.OK);
     }
-
-    @DeleteMapping("/shopOrders/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/api/shopOrders/{id}")
     public ResponseEntity<ShopOrder> deleteShopOrder(@PathVariable long id) {
         shopOrderService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -1,5 +1,6 @@
 package com.example.webshopback.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class ItemCart {
 
     @ManyToOne
     @JoinColumn
+    @JsonProperty("order")
     private ShopOrder shopOrder;
 
     @Transient

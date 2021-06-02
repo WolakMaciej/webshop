@@ -18,7 +18,7 @@ import org.webjars.NotFoundException;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
-
+@Transactional
 @Service
 @Data
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -104,5 +104,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         user.setToken(null);
         userRepository.save(user);
+    }
+
+    @Override
+    public User createNew(User user) {
+        user.setId(null);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepository.save(user);
     }
 }

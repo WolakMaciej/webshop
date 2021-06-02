@@ -5,6 +5,7 @@ import com.example.webshopback.service.ItemCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +40,8 @@ public class ItemCartController {
         ItemCart itemCart = itemCartService.getOne(id);
         return new ResponseEntity<>(itemCart, HttpStatus.OK);
     }
-
-    @DeleteMapping("/itemCarts/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/api/itemCarts/{id}")
     public ResponseEntity<ItemCart> deleteItemCart(@PathVariable long id) {
         itemCartService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

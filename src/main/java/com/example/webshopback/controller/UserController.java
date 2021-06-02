@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.CollectionUtils;
@@ -66,22 +67,28 @@ public class UserController {
         userService.logout(userDetails.getUsername());
         return true;
     }
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "Delete user by id")
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/api/users/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable long id) {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "Edit username")
-    @PutMapping("/users/{id}")
+    @PutMapping("/api/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User user) {
         User newUser = userService.getUserById(id);
         newUser.setUsername(user.getUsername());
         newUser.setEmail(user.getEmail());
         userService.update(newUser);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/api/users")
+    public ResponseEntity<User> createNewUser(@Valid @RequestBody User user) {
+        User newUser = userService.createNew(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
 }

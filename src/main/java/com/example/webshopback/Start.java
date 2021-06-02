@@ -19,14 +19,15 @@ public class Start {
         userRepository.save(userAdmin);
 
 /*
+
         User userUser = new User();
-        userUser.setId(2L);
         userUser.setUsername("User");
         userUser.setPassword(passwordEncoder.encode("user1234"));
         userUser.setEmail("user@gmail.com");
         userUser.setAuthority(UserAuthority.USER);
         userRepository.save(userUser);
 */
+
 
     }
 }

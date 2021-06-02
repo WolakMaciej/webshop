@@ -22,4 +22,6 @@ public interface UserService {
     AuthResponse login(String username, String password);
 
     void logout(String username);
+
+    User createNew(User user);
 }
