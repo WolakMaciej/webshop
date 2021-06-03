@@ -19,7 +19,7 @@ public class ItemCart {
 
     private int quantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     @JsonProperty("order")
     private ShopOrder shopOrder;

@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class ShopOrder {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @CreationTimestamp
@@ -26,7 +26,7 @@ public class ShopOrder {
     private User user;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "shopOrder", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shopOrder", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemCart> itemCarts;
 
     @Transient

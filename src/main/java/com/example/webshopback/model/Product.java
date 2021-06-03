@@ -25,7 +25,7 @@ public class Product {
     private int quantity;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
     private List<ItemCart> itemCarts;
 
 
