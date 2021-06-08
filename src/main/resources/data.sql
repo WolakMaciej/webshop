@@ -5,12 +5,7 @@ VALUES ('Tv Samsung', 'UHD 55 cali',5000,3),
        ('Rower MARIN', 'Damka',2000,15),
        ('Zegarek TIMEX', 'Wodoodporny',500,20),
        ('Telefon Nokia', 'Retro model 3310',250,9),
-       ('Rower', 'Gpppp',500,3),
-       ('Rower', 'Gpppp',500,3),
-       ('Rower', 'Gpppp',500,3),
-       ('Rower', 'Gpppp',500,3),
-       ('Rower', 'Gpppp',500,3),
-       ('Rower', 'Gpppp',500,3);*/
+;
 
 
 /*

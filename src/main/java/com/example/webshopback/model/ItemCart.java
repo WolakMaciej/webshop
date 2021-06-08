@@ -1,5 +1,6 @@
 package com.example.webshopback.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -14,20 +15,18 @@ public class ItemCart {
     private Long id;
 
     @ManyToOne
-    @JoinColumn
+    @JsonProperty("product")
     private Product product;
 
     private int quantity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
-    @JsonProperty("order")
-    private ShopOrder shopOrder;
+/*
 
     @Transient
     public double getTotalPrice() {
         return getProduct().getPrice() * getQuantity();
     }
+*/
 
 
 }

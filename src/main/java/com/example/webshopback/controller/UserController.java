@@ -67,6 +67,7 @@ public class UserController {
         userService.logout(userDetails.getUsername());
         return true;
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @Operation(summary = "Delete user by id")
     @DeleteMapping("/api/users/{id}")
@@ -74,8 +75,9 @@ public class UserController {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
-    @Operation(summary = "Edit username")
+    @Operation(summary = "Edit user")
     @PutMapping("/api/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User user) {
         User newUser = userService.getUserById(id);
@@ -84,6 +86,7 @@ public class UserController {
         userService.update(newUser);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/api/users")
     public ResponseEntity<User> createNewUser(@Valid @RequestBody User user) {

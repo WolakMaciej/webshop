@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,13 +23,12 @@ public class ShopOrder {
     private LocalDateTime updateDateTime;
 
     @ManyToOne
-    @JoinColumn
     private User user;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "shopOrder", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<ItemCart> itemCarts;
+    @OneToMany( cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<ItemCart> itemCarts = new ArrayList<ItemCart>();
 
+/*
     @Transient
     public Double getGrandTotalPrice() {
         double sum = 0D;
@@ -41,6 +41,7 @@ public class ShopOrder {
             }
         return sum;
     }
+*/
 
 
 }

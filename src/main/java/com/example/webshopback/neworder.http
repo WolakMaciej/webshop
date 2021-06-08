@@ -1,0 +1,14 @@
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "product": {
+    "id": 1
+  },
+  "quantity": 2,
+  "order": {
+    "user": {
+      "id": 33
+    }
+  }
+}

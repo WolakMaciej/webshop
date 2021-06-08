@@ -25,7 +25,9 @@ public class ShopOrderServiceImpl implements ShopOrderService {
 
     @Override
     public ShopOrder createNew(ShopOrder shopOrder) {
-        shopOrder.setId(null);
+        if(shopOrder.getUser()!=null && (shopOrder.getItemCarts()!=null) ){
+        shopOrder.setUser(shopOrder.getUser());
+        shopOrder.setItemCarts(shopOrder.getItemCarts());}
         return shopOrderRepository.save(shopOrder);
     }
 
