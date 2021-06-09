@@ -24,13 +24,13 @@ public class User implements UserDetails {
     @Basic
     @Column
     @NotBlank(message = "Password is mandatory")
-    @Length(min = 8, message = "Min 8 chars")
+    @Length(min = 8)
     private String password;
     private UserAuthority authority;
     private String token;
     @Basic
     @Column
-    @Email(message = "Email")
+    @Email
     private String email;
 
     @Transient

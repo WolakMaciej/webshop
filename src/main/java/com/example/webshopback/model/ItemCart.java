@@ -21,7 +21,6 @@ public class ItemCart {
     private int quantity;
 
 /*
-
     @Transient
     public double getTotalPrice() {
         return getProduct().getPrice() * getQuantity();

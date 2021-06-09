@@ -25,7 +25,7 @@ public class ShopOrder {
     @ManyToOne
     private User user;
 
-    @OneToMany( cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemCart> itemCarts = new ArrayList<ItemCart>();
 
 /*

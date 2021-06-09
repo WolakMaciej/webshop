@@ -23,6 +23,8 @@ public class Product {
     //private byte[] image;
     @Column(nullable = false)
     private int quantity;
+    @Length(max = 1000)
+    private String imageUrl;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
