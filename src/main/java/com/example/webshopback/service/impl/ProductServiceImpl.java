@@ -1,6 +1,8 @@
 package com.example.webshopback.service.impl;
 
+import com.example.webshopback.model.ItemCart;
 import com.example.webshopback.model.Product;
+import com.example.webshopback.repository.ItemCartRepository;
 import com.example.webshopback.repository.ProductRepository;
 import com.example.webshopback.service.ProductService;
 import lombok.Data;
@@ -17,6 +19,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ItemCartRepository itemCartRepository;
 
     @Override
     public List<Product> getAll() {
@@ -45,6 +50,17 @@ public class ProductServiceImpl implements ProductService {
     public void update(Product product) {
         product.setId(product.getId());
         productRepository.save(product);
+    }
+
+
+    @Override
+    public Long sunQuantities() {
+        return productRepository.sumQuantities();
+    }
+
+    @Override
+    public Double total() {
+        return productRepository.total();
     }
 
 

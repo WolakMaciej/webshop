@@ -60,6 +60,13 @@ public class ProductController {
         productService.update(newProduct);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
-
+    @GetMapping("/sumq")
+    public Long sumQuantities(){
+        return productService.sunQuantities();
+    }
+    @GetMapping("/total")
+    public Double total(){
+        return productService.total();
+    }
 
 }

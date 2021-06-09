@@ -15,4 +15,8 @@ public interface ProductService {
 
     void update(Product product);
 
+    Long sunQuantities();
+
+    Double total();
+
 }
