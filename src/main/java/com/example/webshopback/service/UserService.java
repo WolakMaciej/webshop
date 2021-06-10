@@ -24,4 +24,6 @@ public interface UserService {
     void logout(String username);
 
     User createNew(User user);
+
+    User findByUsername(String username);
 }

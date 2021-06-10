@@ -26,6 +26,8 @@ public class Product {
     @Length(max = 1000)
     private String imageUrl;
 
+   // private Long totalInOrder;
+
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
     private List<ItemCart> itemCarts;

@@ -14,4 +14,5 @@ public interface ShopOrderService {
     void delete(long id);
 
     void update(ShopOrder shopOrder);
+    List<ShopOrder> findShopOrdersByUserUsername(String username);
 }

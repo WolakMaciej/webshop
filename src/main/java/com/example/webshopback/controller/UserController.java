@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.CollectionUtils;
@@ -93,5 +94,17 @@ public class UserController {
         User newUser = userService.createNew(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
+
+
+    @GetMapping("/username")
+    public String getAuthentication() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userDetails.getUsername();
+    }
+           /* public String currentUserName() {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            return authentication.getName();
+            }*/
+
 
 }

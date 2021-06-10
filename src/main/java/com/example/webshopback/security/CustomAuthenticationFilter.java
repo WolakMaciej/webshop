@@ -1,11 +1,13 @@
 package com.example.webshopback.security;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
@@ -18,6 +20,9 @@ import java.io.IOException;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 public class CustomAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     public CustomAuthenticationFilter(RequestMatcher requiresAuthenticationRequestMatcher) {
         super(requiresAuthenticationRequestMatcher);

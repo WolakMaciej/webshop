@@ -30,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             new AntPathRequestMatcher("/itemCarts"),
             new AntPathRequestMatcher("/shopOrders/**"),
             new AntPathRequestMatcher("/users/**"),
-            new AntPathRequestMatcher("/itemCarts/**")
+            new AntPathRequestMatcher("/itemCarts/**"),
+            new AntPathRequestMatcher("/username"),
+            new AntPathRequestMatcher("/getu")
             );
 
 
