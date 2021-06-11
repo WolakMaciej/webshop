@@ -1,7 +1,6 @@
 package com.example.webshopback.repository;
 
 import com.example.webshopback.model.ItemCart;
-import com.example.webshopback.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

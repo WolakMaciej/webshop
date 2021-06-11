@@ -1,5 +1,6 @@
 package com.example.webshopback.service.impl;
 
+import com.example.webshopback.model.ItemCart;
 import com.example.webshopback.model.ShopOrder;
 import com.example.webshopback.repository.ShopOrderRepository;
 import com.example.webshopback.service.ShopOrderService;
@@ -53,5 +54,7 @@ public class ShopOrderServiceImpl implements ShopOrderService {
     public List<ShopOrder> findShopOrdersByUserUsername(String username) {
         return shopOrderRepository.findShopOrdersByUserUsername(username);
     }
+
+
 
 }

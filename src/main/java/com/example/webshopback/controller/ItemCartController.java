@@ -20,7 +20,9 @@ public class ItemCartController {
     @Autowired
     ItemCartService itemCartService;
 
-    @GetMapping("/itemCarts")
+
+
+   @GetMapping("/itemCarts")
     public ResponseEntity<List<ItemCart>> getItemCarts() {
         List<ItemCart> itemCarts = itemCartService.getAll();
         if (CollectionUtils.isEmpty(itemCarts)) {

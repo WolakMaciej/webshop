@@ -1,6 +1,6 @@
 package com.example.webshopback.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -24,7 +24,7 @@ public class ShopOrder {
 
     @ManyToOne
     private User user;
-
+    //@JsonProperty("cart")
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemCart> itemCarts = new ArrayList<ItemCart>();
 

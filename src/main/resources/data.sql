@@ -1,5 +1,6 @@
 /*
 
+
 INSERT INTO PRODUCT (ID, NAME,DESCRIPTION, PRICE,QUANTITY,IMAGE_URL)
 VALUES (1,'Tv Samsung', 'UHD 55 cali',5000,3, 'https://images.pexels.com/photos/6782360/pexels-photo-6782360.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 INSERT INTO PRODUCT (ID, NAME,DESCRIPTION, PRICE,QUANTITY,IMAGE_URL)
@@ -22,8 +23,8 @@ INSERT INTO PRODUCT (ID, NAME,DESCRIPTION, PRICE,QUANTITY, IMAGE_URL)
 VALUES (10,'Aparat Canon', 'D5 30MP + obiektyw',10000,2,'https://images.pexels.com/photos/1093065/pexels-photo-1093065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 
 
-
 */
+
 
 
 

@@ -1,7 +1,9 @@
 package com.example.webshopback.controller;
 
+import com.example.webshopback.model.ItemCart;
 import com.example.webshopback.model.ShopOrder;
 import com.example.webshopback.model.User;
+import com.example.webshopback.service.ItemCartService;
 import com.example.webshopback.service.ShopOrderService;
 import com.example.webshopback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,25 +28,26 @@ public class ShopOrderController {
     ShopOrderService shopOrderService;
     @Autowired
     UserService userService;
+    @Autowired
+    ItemCartService itemCartService;
 
-    @GetMapping("/shopOrders")
+  /*  @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
         List<ShopOrder> shopOrders = shopOrderService.getAll();
         if (CollectionUtils.isEmpty(shopOrders)) {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }
+    }*/
 
 
-/*    @GetMapping("/shopOrders")
+   @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String auth = authentication.getName();
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
+        String autho = userDetails.getAuthorities().iterator().next().toString();
         List<ShopOrder> shopOrders;
-        if (auth.equals("ADMIN")) {
+        if (autho.equals("ADMIN")) {
             shopOrders = shopOrderService.getAll();
         }else {
             shopOrders = shopOrderService.findShopOrdersByUserUsername(username);
@@ -53,7 +56,7 @@ public class ShopOrderController {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }*/
+    }
 
     @PostMapping("/shopOrders")
     public ResponseEntity<ShopOrder> createNewShopOrder(@Valid @RequestBody ShopOrder shopOrder) {
@@ -78,7 +81,7 @@ public class ShopOrderController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/shopOrders/{id}")
+   @PutMapping("/shopOrders/{id}")
     public ResponseEntity<ShopOrder> updateShopOrder(@PathVariable long id, @RequestBody ShopOrder shopOrder) {
         ShopOrder newShopOrder = shopOrderService.getOne(id);
         newShopOrder.setUser(newShopOrder.getUser());
@@ -108,4 +111,6 @@ public class ShopOrderController {
         User user = userService.findByUsername(username);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }*/
+
+
 }
