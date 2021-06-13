@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ShopOrderRepository extends JpaRepository<ShopOrder, Long> {
-List<ShopOrder> findShopOrdersByUserUsername(String username);
-
+    List<ShopOrder> findShopOrdersByUserUsername(String username);
 }

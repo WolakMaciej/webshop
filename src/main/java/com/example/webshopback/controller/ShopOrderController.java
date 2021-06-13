@@ -31,17 +31,17 @@ public class ShopOrderController {
     @Autowired
     ItemCartService itemCartService;
 
-  /*  @GetMapping("/shopOrders")
+    @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
         List<ShopOrder> shopOrders = shopOrderService.getAll();
         if (CollectionUtils.isEmpty(shopOrders)) {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }*/
+    }
 
 
-   @GetMapping("/shopOrders")
+  /* @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
@@ -56,7 +56,7 @@ public class ShopOrderController {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }
+    }*/
 
     @PostMapping("/shopOrders")
     public ResponseEntity<ShopOrder> createNewShopOrder(@Valid @RequestBody ShopOrder shopOrder) {

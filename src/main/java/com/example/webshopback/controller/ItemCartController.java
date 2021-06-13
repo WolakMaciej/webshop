@@ -53,7 +53,6 @@ public class ItemCartController {
     public ResponseEntity<ItemCart> updateItemCart(@PathVariable long id, @RequestBody ItemCart itemCart) {
         ItemCart newItemCart = itemCartService.getOne(id);
         newItemCart.setQuantity(itemCart.getQuantity());
-        newItemCart.setProduct(itemCart.getProduct());
         itemCartService.update(newItemCart);
         return new ResponseEntity<>(itemCart, HttpStatus.OK);
     }

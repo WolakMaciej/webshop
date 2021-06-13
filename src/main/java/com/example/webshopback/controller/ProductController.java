@@ -54,6 +54,7 @@ public class ProductController {
     public ResponseEntity<Product> updateProduct(@PathVariable long id, @Valid @RequestBody Product product) {
         Product newProduct = productService.getOne(id);
         newProduct.setName(product.getName());
+        newProduct.setQuantity(product.getQuantity());
         newProduct.setDescription(product.getDescription());
         newProduct.setPrice(product.getPrice());
         newProduct.setImageUrl(product.getImageUrl());
