@@ -1,6 +1,5 @@
 package com.example.webshopback.controller;
 
-import com.example.webshopback.model.ItemCart;
 import com.example.webshopback.model.ShopOrder;
 import com.example.webshopback.model.User;
 import com.example.webshopback.service.ItemCartService;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.CollectionUtils;
@@ -31,17 +29,17 @@ public class ShopOrderController {
     @Autowired
     ItemCartService itemCartService;
 
-    @GetMapping("/shopOrders")
+/*    @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
         List<ShopOrder> shopOrders = shopOrderService.getAll();
         if (CollectionUtils.isEmpty(shopOrders)) {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }
+    }*/
 
 
-  /* @GetMapping("/shopOrders")
+   @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
@@ -56,7 +54,7 @@ public class ShopOrderController {
             throw new EntityNotFoundException();
         }
         return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }*/
+    }
 
     @PostMapping("/shopOrders")
     public ResponseEntity<ShopOrder> createNewShopOrder(@Valid @RequestBody ShopOrder shopOrder) {
@@ -88,29 +86,6 @@ public class ShopOrderController {
         shopOrderService.update(newShopOrder);
         return new ResponseEntity<>(shopOrder, HttpStatus.OK);
     }
-
-/*    @GetMapping("/shopOrders")
-    public ResponseEntity<List<ShopOrder>> getShopOrderByUser() {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = userDetails.getUsername();
-        if (username.equals("Admin")){
-            List<ShopOrder> shopOrders=shopOrderService.getAll();
-            return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-        }
-        else {
-            List<ShopOrder> shopOrders = shopOrderService.findShopOrdersByUserUsername(username);
-            return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-        }
-
-    }
-
-    @GetMapping("/getu")
-    public ResponseEntity<User> getu(){
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = userDetails.getUsername();
-        User user = userService.findByUsername(username);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }*/
 
 
 }

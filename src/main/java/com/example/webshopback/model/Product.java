@@ -20,13 +20,11 @@ public class Product {
     private String description;
     @Column(nullable = false)
     private Double price;
-    //private byte[] image;
     @Column(nullable = false)
     private int quantity;
     @Length(max = 1000)
     private String imageUrl;
 
-   // private Long totalInOrder;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)

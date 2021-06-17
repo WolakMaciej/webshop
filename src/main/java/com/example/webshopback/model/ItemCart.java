@@ -1,9 +1,7 @@
 package com.example.webshopback.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 
@@ -20,13 +18,5 @@ public class ItemCart {
     private Product product;
 
     private int quantity;
-
-/*
-    @Transient
-    public double getTotalPrice() {
-        return getProduct().getPrice() * getQuantity();
-    }
-*/
-
 
 }
