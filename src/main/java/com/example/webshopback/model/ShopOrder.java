@@ -1,6 +1,5 @@
 package com.example.webshopback.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -28,7 +27,7 @@ public class ShopOrder {
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<ItemCart> itemCarts = new ArrayList<ItemCart>();
 
-/*
+
     @Transient
     public Double getGrandTotalPrice() {
         double sum = 0D;
@@ -37,11 +36,11 @@ public class ShopOrder {
             return 0.0;
         } else
             for (ItemCart op : itemCarts) {
-                sum += op.getTotalPrice();
+                sum += op.getQuantity()*op.getProduct().getPrice();
             }
         return sum;
     }
-*/
+
 
 
 }
