@@ -3,11 +3,14 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Functions](#functions)
 * [End Points](#end-points)
 * [Clone](#clone)
 
 ## General info
 Simple web shop with user registration and managemet options.
+* User must login to place order and check order history
+* Admin must login to manage app
 	
 ## Technologies
 Project is created with:
@@ -15,6 +18,18 @@ Project is created with:
 * Gradle
 * Lombok
 * H2 SQL Database
+
+## Functions
+* User Login/Logut
+* User Register/Edit/Delete
+* View all users
+* Create user with authority: USER or ADMIN
+* Add/Edit/Delete product
+* Viwe all products
+* Create/Delete order
+* View all orders
+* Edit itemCart quantity
+
 
 ## End Points
 User-controller:
