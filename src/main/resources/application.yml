@@ -1,38 +1,34 @@
-#http://localhost:8080/actuator
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
+##http://localhost:8080/actuator
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#
+##spring:
+## h2:
+##console:
+##enabled: true
 #spring:
-# h2:
-#console:
-#enabled: true
-spring:
-
-  datasource:
-    url: jdbc:postgres://ohnrdzyjwdteuu:d9ac3a81b98792346aff1e1396c65b4530cef7fc0529dca1895a1f8ad24bd120@ec2-52-211-158-144.eu-west-1.compute.amazonaws.com:5432/d3l24nfbakis4g
-    username: ohnrdzyjwdteuu
-    password: d9ac3a81b98792346aff1e1396c65b4530cef7fc0529dca1895a1f8ad24bd120
-  #url: "jdbc:h2:file:./data/webshopDb"
-    #username: ${JDBC_DATABASE_USERNAME}
-    #password: ${JDBC_DATABASE_PASSWORD}
-    #url: ${JDBC_DATABASE_URL}
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false
-    generate-ddl: true
-
-
-logging:
-  level:
-    org:
-      springframework:
-        security: DEBUG
-
+#  datasource:
+#    url: "jdbc:h2:file:./data/webshopDb"
+#    #username: ${JDBC_DATABASE_USERNAME}
+#    #password: ${JDBC_DATABASE_PASSWORD}
+#    #url: ${JDBC_DATABASE_URL}
+#    #driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    open-in-view: true
+#    #database: postgresql
+#    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: false
+#    generate-ddl: true
+#
+#
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG
+#
