@@ -14,7 +14,7 @@ Project is created with:
 * Spring Boot
 * Gradle
 * Lombok
-*H2 SQL Database
+* H2 SQL Database
 
 ## End Points
 User-controller:
