@@ -32,6 +32,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.22'
+    implementation group: 'com.heroku.sdk', name: 'heroku-deploy', version: '3.0.4'
 }
 
 test {
