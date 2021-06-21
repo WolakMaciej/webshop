@@ -27,7 +27,6 @@ public class ItemCartServiceImpl implements ItemCartService {
     @Override
     public ItemCart createNew(ItemCart itemCart) {
         itemCart.setId(null);
-       // itemCart.getProduct().setTotalInOrder((long) itemCart.getQuantity());
         return itemCartRepository.save(itemCart);
     }
 

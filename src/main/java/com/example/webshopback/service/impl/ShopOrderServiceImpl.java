@@ -1,6 +1,5 @@
 package com.example.webshopback.service.impl;
 
-import com.example.webshopback.model.ItemCart;
 import com.example.webshopback.model.ShopOrder;
 import com.example.webshopback.repository.ShopOrderRepository;
 import com.example.webshopback.service.ShopOrderService;
@@ -11,6 +10,7 @@ import org.webjars.NotFoundException;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Transactional
 @Service
 @Data
@@ -27,7 +27,6 @@ public class ShopOrderServiceImpl implements ShopOrderService {
     @Override
     public ShopOrder createNew(ShopOrder shopOrder) {
         if(shopOrder.getUser()!=null && (shopOrder.getItemCarts()!=null) ){
-        //shopOrder.setUser(shopOrder.getUser());
         shopOrder.setItemCarts(shopOrder.getItemCarts());}
         return shopOrderRepository.save(shopOrder);
     }

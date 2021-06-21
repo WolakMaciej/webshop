@@ -17,5 +17,12 @@ public class Start {
         userAdmin.setEmail("admin@gmail.com");
         userAdmin.setAuthority(UserAuthority.ADMIN);
         userRepository.save(userAdmin);
+
+        User userUser = new User();
+        userUser.setId(2L);
+        userUser.setUsername("User");
+        userUser.setPassword(passwordEncoder.encode("user1234"));
+        userUser.setAuthority(UserAuthority.USER);
+        userRepository.save(userUser);
     }
 }

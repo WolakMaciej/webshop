@@ -29,15 +29,6 @@ public class ShopOrderController {
     @Autowired
     ItemCartService itemCartService;
 
-/*    @GetMapping("/shopOrders")
-    public ResponseEntity<List<ShopOrder>> getShopOrder() {
-        List<ShopOrder> shopOrders = shopOrderService.getAll();
-        if (CollectionUtils.isEmpty(shopOrders)) {
-            throw new EntityNotFoundException();
-        }
-        return new ResponseEntity<>(shopOrders, HttpStatus.OK);
-    }*/
-
 
    @GetMapping("/shopOrders")
     public ResponseEntity<List<ShopOrder>> getShopOrder() {
@@ -61,7 +52,6 @@ public class ShopOrderController {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
         User user = userService.findByUsername(username);
-        //user.setId(user.getId());
         shopOrder.setUser(user);
         shopOrderService.createNew(shopOrder);
         return new ResponseEntity<>(shopOrder, HttpStatus.CREATED);
@@ -86,6 +76,5 @@ public class ShopOrderController {
         shopOrderService.update(newShopOrder);
         return new ResponseEntity<>(shopOrder, HttpStatus.OK);
     }
-
 
 }

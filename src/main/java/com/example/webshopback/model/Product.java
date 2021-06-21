@@ -25,10 +25,21 @@ public class Product {
     @Length(max = 1000)
     private String imageUrl;
 
-
+    public Product(Long id, String name, String description, Double price, int quantity, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
+    }
     @JsonIgnore
     @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
     private List<ItemCart> itemCarts;
+
+    public Product() {
+
+    }
 
 
     @Transient

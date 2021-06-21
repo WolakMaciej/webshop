@@ -21,7 +21,7 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
-    //PreAuthorize("hasAuthority('USER')")
+
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
         List<Product> products = productService.getAll();
@@ -37,7 +37,7 @@ public class ProductController {
         Product persistedProduct = productService.createNew(product);
         return new ResponseEntity<>(persistedProduct, HttpStatus.CREATED);
     }
-   //@PreAuthorize("hasAuthority('USER')")
+
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable long id) {
         Product product = productService.getOne(id);
